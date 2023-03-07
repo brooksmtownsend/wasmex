@@ -12,6 +12,10 @@ extern crate lazy_static;
 #[macro_use]
 extern crate rustler;
 
+lazy_static::lazy_static! {
+    pub static ref RUNTIME: tokio::runtime::Runtime = tokio::runtime::Runtime::new().unwrap();
+}
+
 use rustler::{Env, Term};
 
 rustler::init! {

@@ -282,8 +282,7 @@ pub fn call_exported_function<'a>(
     // copy over params into the thread environment
     let function_params = thread_env.save(params);
     let from = thread_env.save(from);
-
-    thread::spawn(move || {
+    crate::RUNTIME.spawn(async move {
         thread_env.send_and_clear(&pid, |thread_env| {
             execute_function(thread_env, resource, function_name, function_params, from)
         })

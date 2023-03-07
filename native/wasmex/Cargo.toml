@@ -22,3 +22,4 @@ wasmer-vm = "2.1.1"
 wasmer-wasi = "2.2.1"
 serde = "1.0.137"
 typetag = "0.1.8"
+tokio = { version = "=1.24.0", features = ["rt", "rt-multi-thread"] }
